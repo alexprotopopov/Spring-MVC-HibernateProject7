@@ -40,11 +40,12 @@ public class UserDaoImp implements UserDao {
         return sessionFactory.getCurrentSession().get(User.class, id);
 
     }
-    @Override
-    public void update (int id, User user) {
-        User userToBeUpdated = getUser(id);
-        userToBeUpdated.setFirstName(user.getFirstName());
-        userToBeUpdated.setEmail(user.getEmail());
-        userToBeUpdated.setLastName(user.getLastName());
-    }
 }
+//    @Override
+//    public void update (int id, User user) {
+//        User userToBeUpdated = getUser(id);
+//        userToBeUpdated.setFirstName(user.getFirstName());
+//        userToBeUpdated.setEmail(user.getEmail());
+//        userToBeUpdated.setLastName(user.getLastName());
+//    }
+//}

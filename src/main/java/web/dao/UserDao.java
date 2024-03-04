@@ -11,5 +11,5 @@ public interface UserDao {
    void saveUser(User user);
 
     User getUser(int id);
-    void update (int id, User user);
+  //  void update (int id, User user);
 }
