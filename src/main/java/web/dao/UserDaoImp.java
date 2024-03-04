@@ -1,7 +1,6 @@
 package web.dao;
 
 
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,6 +32,19 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public void saveUser(User user) {
-        sessionFactory.getCurrentSession().save(user);
+        sessionFactory.getCurrentSession().saveOrUpdate(user);
+    }
+
+    @Override
+    public User getUser(int id) {
+        return sessionFactory.getCurrentSession().get(User.class, id);
+
+    }
+    @Override
+    public void update (int id, User user) {
+        User userToBeUpdated = getUser(id);
+        userToBeUpdated.setFirstName(user.getFirstName());
+        userToBeUpdated.setEmail(user.getEmail());
+        userToBeUpdated.setLastName(user.getLastName());
     }
 }

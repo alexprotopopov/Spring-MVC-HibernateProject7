@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import web.Service.UserService;
 import web.model.User;
 
-import java.util.List;
+
 
 
 @Controller
@@ -37,9 +37,30 @@ public class UserController {
         userService.saveUser(user);
         return "redirect:/";
     }
-//    @GetMapping()
-//    public String show(@RequestParam(value = "id", defaultValue = "5", required = false) int count, Model model) {
-//        model.addAttribute("cars", userService.show(count));
-//        return "cars";
-//    }
+
+    @RequestMapping(value = "/updateUser")
+    public String updateUser(@RequestParam("id") int id, Model model) {
+        model.addAttribute("id", id);
+        User user = userService.getUser(id);
+        model.addAttribute("user", user);
+
+        return "user-info";
+    }
 }
+//    @GetMapping("/{id}/edit")
+//    public String edit(Model model, @PathVariable("id") int id) {
+//model.addAttribute("user",userService.getUser(id));
+//        return "/edit";
+//    }
+//    @PatchMapping("/{id}")
+//    public String update(@ModelAttribute("user") User user,@PathVariable("id") int id) {
+//        userService.update(id, user);
+//        return "redirect:/";
+//    }
+//    @PatchMapping("/{id}")
+//    public String update(@ModelAttribute("user") User user, @RequestParam("id") int id) {
+//user.update(id, user);
+//return "redirect:/";
+//    }
+
+
