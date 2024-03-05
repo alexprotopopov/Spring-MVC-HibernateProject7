@@ -9,7 +9,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Id</th>
+
             <th scope="col">Name</th>
             <th scope="col">LastName</th>
             <th scope="col">Mail</th>
@@ -19,11 +19,12 @@
 
         <tr th:each="user : ${people}">
 
-            <td th:text="${user.id}" th:value="${user.id}" th:name="id"/>
+
             <td th:text="${user.firstName}"/>
             <td th:text="${user.lastName}"/>
             <td th:text="${user.email}"/>
-            <td> <a th:href= "@{/updateUser(id=${user.id})}"> Update </a> </td>
+            <td><a th:href="@{/updateUser(id=${user.id})}"> Update </a>
+                <a th:href="@{/deleteUser(id=${user.id})}"> Delete </a></td>
         </tr>
     </table>
     <br>

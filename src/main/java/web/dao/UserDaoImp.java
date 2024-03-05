@@ -27,7 +27,6 @@ public class UserDaoImp implements UserDao {
     public List<User> listUsers() {
         TypedQuery<User> query = (TypedQuery<User>) sessionFactory.getCurrentSession().createQuery("FROM User", User.class);
         return query.getResultList();
-
     }
 
     @Override
@@ -38,14 +37,11 @@ public class UserDaoImp implements UserDao {
     @Override
     public User getUser(int id) {
         return sessionFactory.getCurrentSession().get(User.class, id);
+    }
 
+    @Override
+    public void deleteUser(int id) {
+        sessionFactory.getCurrentSession().createQuery("delete from User " + "where id=:userId")
+                .setParameter("userId", id).executeUpdate();
     }
 }
-//    @Override
-//    public void update (int id, User user) {
-//        User userToBeUpdated = getUser(id);
-//        userToBeUpdated.setFirstName(user.getFirstName());
-//        userToBeUpdated.setEmail(user.getEmail());
-//        userToBeUpdated.setLastName(user.getLastName());
-//    }
-//}

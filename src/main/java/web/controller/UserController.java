@@ -12,8 +12,6 @@ import web.Service.UserService;
 import web.model.User;
 
 
-
-
 @Controller
 @RequestMapping(value = "/")
 public class UserController {
@@ -38,29 +36,20 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/updateUser")
+    @GetMapping(value = "/updateUser")
     public String updateUser(@RequestParam("id") int id, Model model) {
         model.addAttribute("id", id);
         User user = userService.getUser(id);
         model.addAttribute("user", user);
-
         return "user-info";
     }
+
+    @GetMapping(value = "/deleteUser")
+    public String deleteUser(@RequestParam("id") int id, Model model) {
+       userService.deleteUser(id);
+        return "redirect:/";
+    }
 }
-//    @GetMapping("/{id}/edit")
-//    public String edit(Model model, @PathVariable("id") int id) {
-//model.addAttribute("user",userService.getUser(id));
-//        return "/edit";
-//    }
-//    @PatchMapping("/{id}")
-//    public String update(@ModelAttribute("user") User user,@PathVariable("id") int id) {
-//        userService.update(id, user);
-//        return "redirect:/";
-//    }
-//    @PatchMapping("/{id}")
-//    public String update(@ModelAttribute("user") User user, @RequestParam("id") int id) {
-//user.update(id, user);
-//return "redirect:/";
-//    }
+
 
 
