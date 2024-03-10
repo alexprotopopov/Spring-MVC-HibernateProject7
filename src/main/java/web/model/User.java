@@ -15,10 +15,10 @@ public class User {
     @Column
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 20)
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "lastName", nullable = false, length = 20)
     private String lastName;
 
     @Column(name = "email")
@@ -32,7 +32,6 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-
     }
 
     public int getId() {

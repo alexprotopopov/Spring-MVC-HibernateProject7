@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import web.Service.UserService;
 import web.model.User;
 
-
 @Controller
 @RequestMapping(value = "/")
 public class UserController {
@@ -45,8 +44,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/deleteUser")
-    public String deleteUser(@RequestParam("id") int id, Model model) {
-       userService.deleteUser(id);
+    public String deleteUser(@RequestParam("id") int id) {
+        userService.deleteUser(id);
         return "redirect:/";
     }
 }

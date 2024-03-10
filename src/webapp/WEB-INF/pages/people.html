@@ -9,17 +9,13 @@
     <table class="table">
         <thead>
         <tr>
-
             <th scope="col">Name</th>
             <th scope="col">LastName</th>
             <th scope="col">Mail</th>
             <th scope="col">Operations</th>
         </tr>
         </thead>
-
         <tr th:each="user : ${people}">
-
-
             <td th:text="${user.firstName}"/>
             <td th:text="${user.lastName}"/>
             <td th:text="${user.email}"/>

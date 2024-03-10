@@ -14,19 +14,16 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-
     @Transactional
     @Override
     public void add(User user) {
         userDao.add(user);
     }
 
-
     @Transactional(readOnly = true)
     @Override
     public List<User> listUsers() {
         return userDao.listUsers();
-
     }
 
     @Transactional
@@ -46,5 +43,4 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(int id) {
         userDao.deleteUser(id);
     }
-
 }
